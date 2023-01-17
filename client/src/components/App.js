@@ -19,7 +19,7 @@ function App() {
     })
   }, [])
 
-  if (!user) return <Router><Login onLogin={setUser} /></Router>
+  if (user) return <Router><Login onLogin={setUser} /></Router>
       
 
 
