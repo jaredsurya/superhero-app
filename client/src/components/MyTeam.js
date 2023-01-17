@@ -6,7 +6,7 @@ import React from 'react'
 function MyTeam() {
   return (
     <div>
-      
+      <h3>This is the team you have built so far. Click a hero to return them to the All Heroes page.</h3>
     </div>
   )
 }

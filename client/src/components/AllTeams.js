@@ -5,7 +5,7 @@ import React from 'react'
 function AllTeams() {
   return (
     <div>
-      
+      <h3>These are the teams made by you and other website users.</h3>
     </div>
   )
 }

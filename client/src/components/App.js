@@ -4,6 +4,9 @@ import '../App.css';
 import NavBar from "./NavBar";
 import Home from "./Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import MyTeam from "./MyTeam";
+import AllHeroes from "./AllHeroes";
+import AllTeams from "./AllTeams";
 
 function App() {
   const [user, setUser] = useState(null)
@@ -16,7 +19,8 @@ function App() {
     })
   }, [])
 
-  if (!user) return <Login onLogin={setUser} />
+  if (!user) return <Router><Login onLogin={setUser} /></Router>
+      
 
 
 // CHECK OUT LIZZIES APP
@@ -28,6 +32,9 @@ function App() {
     <NavBar />
       <Routes>
         <Route path="/" element={<Home/>}/>
+        <Route path="/myteam" element={<MyTeam/>}/>
+        <Route path="/allheroes" element={<AllHeroes/>}/>
+        <Route path="/allteams" element={<AllTeams/>}/>
       </Routes>
     </Router>
   );

@@ -5,7 +5,7 @@ import React from 'react'
 function AllHeroes() {
   return (
     <div>
-      
+      <h3>Below are superhero cards. Click them to add to your team.</h3>
     </div>
   )
 }
