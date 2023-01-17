@@ -11,7 +11,8 @@ function SignUpForm({onLogin}) {
 
 
   function signupSubmit(event)  {
-      event.preventDefault();
+    console.log(JSON.stringify(username, password, firstName))  
+    event.preventDefault();
       fetch("/signup", {
           method: "POST",
           headers: {

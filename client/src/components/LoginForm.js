@@ -28,7 +28,7 @@ function LoginForm ({onLogin}) {
           }
     })
   }
-  console.log(username, password)
+
   return (
     <div>
       <h3>Please log in:</h3>
