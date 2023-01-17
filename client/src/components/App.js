@@ -10,7 +10,8 @@ import AllTeams from "./AllTeams";
 
 function App() {
   const [user, setUser] = useState(null)
-  
+  const [heroArray, setHeroArray] = useState(null)
+
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
@@ -18,6 +19,15 @@ function App() {
       }
     })
   }, [])
+
+  useEffect(() => {
+    fetch("/heros/")
+    .then((r) => {
+      r.json()})
+    .then(setHeroArray)
+  }, [])
+
+  console.log(heroArray)
 
   if (!user) return <Router><Login setUser={setUser} /></Router>
       

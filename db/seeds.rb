@@ -1,3 +1,5 @@
+require 'rest-client'
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -16,3 +18,23 @@
 # user can edit their selection of 5 by picking from 25 randomly generated heroes (superheroapi.com)
 # users team is ranked by overall strength and sorted in a list with other users' teams
 # users can leave comments on other users' teams, edit and delete comments as well
+
+
+def heroesdata
+  hero = RestClient.get("https://www.superheroapi.com/api.php/165372752915293/#{rand(1..732)}")
+  hero_array = JSON.parse(hero)
+  final_hero = {
+    name: hero_array["name"], 
+    full_name: hero_array["biography"]["full_name"], 
+    power_level: hero_array["powerstats"]["strength"].to_i+hero_array["powerstats"]["power"].to_i,
+    publisher: hero_array["biography"]["publisher"],
+    image: hero_array["image"]
+  }
+  Hero.create(final_hero)
+end
+
+25.times { heroesdata() }
+
+
+  #create hash strength: powerstats.strength
+  #find_or_create instead of create to prevent duplicates
