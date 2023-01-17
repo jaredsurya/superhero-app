@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import {Link, useNavigate} from "react-router-dom";
 
 // toggles to show login when showLogin reads "true"
-function LoginForm ({onLogin}) {
+function LoginForm ({setUser}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -21,7 +21,7 @@ function LoginForm ({onLogin}) {
     })
     .then((r) => {
         if (r.ok) {
-            r.json().then((user) => onLogin(user));
+            r.json().then((user) => setUser(user));
             navigate("/")
           } else {
             r.json().then((err) => setErrors(err.errors));

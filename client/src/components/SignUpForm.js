@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // toggles to show signup when showLogin reads "false"
 
-function SignUpForm({onLogin}) {
+function SignUpForm({setUser}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("")
@@ -11,7 +11,6 @@ function SignUpForm({onLogin}) {
 
 
   function signupSubmit(event)  {
-    console.log(JSON.stringify(username, password, firstName))  
     event.preventDefault();
       fetch("/signup", {
           method: "POST",
@@ -21,7 +20,10 @@ function SignUpForm({onLogin}) {
           body: JSON.stringify({username, password, first_name: firstName}),
       }).then((r) => {
           if (r.ok) {
-              r.json().then((user) => onLogin(user))
+              r.json().then((user) => {
+                console.log(user)
+                setUser(user)
+              })
               navigate("/")
           } else {
               r.json().then ((err) => setErrors(err.errors));

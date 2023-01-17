@@ -19,7 +19,7 @@ function App() {
     })
   }, [])
 
-  if (!user) return <Router><Login onLogin={setUser} /></Router>
+  if (!user) return <Router><Login setUser={setUser} /></Router>
       
 
 
@@ -29,9 +29,9 @@ function App() {
 
   return (
     <Router className="App">
-    <NavBar />
+    <NavBar user={user} setUser={setUser} />
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<Home user={user}/>}/>
         <Route path="/myteam" element={<MyTeam/>}/>
         <Route path="/allheroes" element={<AllHeroes/>}/>
         <Route path="/allteams" element={<AllTeams/>}/>

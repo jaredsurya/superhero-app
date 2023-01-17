@@ -2,7 +2,7 @@ import { useState } from "react";
 import LoginForm from "./LoginForm"
 import SignUpForm from "./SignUpForm";
 
-function Login({ onLogin }) {
+function Login({ setUser }) {
   const [showLogin, setShowLogin] = useState(true);
 
   // displays at first entry to site, 
@@ -11,7 +11,7 @@ function Login({ onLogin }) {
       <h2>Your superhero team awaits!</h2>
       {showLogin ? (
         <>
-          <LoginForm onLogin={onLogin} />
+          <LoginForm setUser={setUser} />
           <br />
           <br />
 
@@ -24,7 +24,7 @@ function Login({ onLogin }) {
         </>
       ) : (
         <>
-          <SignUpForm onLogin={onLogin} />
+          <SignUpForm setUser={setUser} />
           <br />
           <br />
           <p>
