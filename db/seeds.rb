@@ -25,16 +25,14 @@ def heroesdata
   hero_array = JSON.parse(hero)
   final_hero = {
     name: hero_array["name"], 
-    full_name: hero_array["biography"]["full_name"], 
+    full_name: hero_array["biography"]["full-name"], 
     power_level: hero_array["powerstats"]["strength"].to_i+hero_array["powerstats"]["power"].to_i,
     publisher: hero_array["biography"]["publisher"],
-    image: hero_array["image"]
+    image: hero_array["image"]["url"]
   }
   Hero.create(final_hero)
 end
 
 25.times { heroesdata() }
 
-
-  #create hash strength: powerstats.strength
-  #find_or_create instead of create to prevent duplicates
+puts "DONE 💪🏽 🐉 ❗"

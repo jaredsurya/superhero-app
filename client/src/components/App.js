@@ -21,16 +21,21 @@ function App() {
   }, [])
 
   useEffect(() => {
-    fetch("/heros")
-    .then((r) => {
-      r.json()})
-    .then(data => setHeroArray(data))
+    fetch("/heros").then((r) => {
+      r.json().then(setHeroArray)
+  })
   }, [])
 
   
   if (!user) return <Router><Login setUser={setUser} /></Router>
   
-  console.log("2", heroArray)
+  //console.log("2", heroArray)
+
+  function handleTeamAdd(hero){
+    console.log(hero)
+    // needs to fetch that the hero was added to a team by x user
+    // 
+  }
 
 
 
@@ -40,7 +45,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home user={user}/>}/>
         <Route path="/myteam" element={<MyTeam/>}/>
-        <Route path="/allheroes" element={<AllHeroes />}/>
+        <Route path="/allheroes" element={<AllHeroes heroArray={heroArray} setHeroArray={setHeroArray} handleTeamAdd={handleTeamAdd} />}/>
         <Route path="/allteams" element={<AllTeams/>}/>
       </Routes>
     </Router>
