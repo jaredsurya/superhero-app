@@ -14,10 +14,10 @@ function NavBar({user, setUser}) {
   return (
     <div className='navbar'>
       <Link to="/" className="nav">Welcome</Link>
-      <Link to="/myteam" className="nav">My Team</Link>
-      <Link to="/allteams" className="nav">All Teams</Link>
       <Link to="/allheroes" className="nav">All Heroes</Link>
-      <a onClick={handleLogoutClick}>Logout</a>
+      <Link to="/allteams" className="nav">All Teams</Link>
+      <Link to="/myteam" className="nav">My Team</Link>
+      <a className="nav" onClick={handleLogoutClick}>Logout</a>
     </div>
   )
 }

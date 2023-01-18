@@ -3,7 +3,7 @@ import React, { useReducer } from 'react'
 
 function Home({user}) {
   
-  console.log(user)
+  //console.log(user)
   return (
     <div>
       <h1>{`Welcome, ${user.first_name}`}!</h1>

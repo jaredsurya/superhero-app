@@ -10,31 +10,28 @@ import AllTeams from "./AllTeams";
 
 function App() {
   const [user, setUser] = useState(null)
-  const [heroArray, setHeroArray] = useState(null)
+  const [heroArray, setHeroArray] = useState([])
 
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user))
+        r.json().then(setUser)
       }
     })
   }, [])
 
   useEffect(() => {
-    fetch("/heros/")
+    fetch("/heros")
     .then((r) => {
       r.json()})
-    .then(setHeroArray)
+    .then(data => setHeroArray(data))
   }, [])
 
-  console.log(heroArray)
-
+  
   if (!user) return <Router><Login setUser={setUser} /></Router>
-      
+  
+  console.log("2", heroArray)
 
-
-// CHECK OUT LIZZIES APP
-// GET ROUTES AND LINK ELEMENTS RIGHT
 
 
   return (
@@ -43,7 +40,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home user={user}/>}/>
         <Route path="/myteam" element={<MyTeam/>}/>
-        <Route path="/allheroes" element={<AllHeroes/>}/>
+        <Route path="/allheroes" element={<AllHeroes />}/>
         <Route path="/allteams" element={<AllTeams/>}/>
       </Routes>
     </Router>
