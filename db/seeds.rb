@@ -19,6 +19,8 @@ require 'rest-client'
 # users team is ranked by overall strength and sorted in a list with other users' teams
 # users can leave comments on other users' teams, edit and delete comments as well
 
+# user1 = User.create(username: "Apple", password: "1234", first_name: "Fred")
+# user2 = User.create(username: "Crunchy", password: "1234", first_name: "Jimmy")
 
 def heroesdata
   hero = RestClient.get("https://www.superheroapi.com/api.php/165372752915293/#{rand(1..732)}")
@@ -34,5 +36,10 @@ def heroesdata
 end
 
 25.times { heroesdata() }
+
+# UserHero.create(user_id: "1", hero_id: "1")
+# UserHero.create(user_id: "1", hero_id: "2")
+# UserHero.create(user_id: "2", hero_id: "3")
+# UserHero.create(user_id: "2", hero_id: "4")
 
 puts "DONE 💪🏽 🐉 ❗"

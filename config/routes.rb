@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :teams
+  resources :user_heros
   resources :heros
   resources :users, only: [:index, :show, :create]
 

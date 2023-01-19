@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_17_020333) do
+ActiveRecord::Schema.define(version: 2023_01_19_002016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,17 @@ ActiveRecord::Schema.define(version: 2023_01_17_020333) do
   end
 
   create_table "teams", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_heros", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "hero_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["hero_id"], name: "index_teams_on_hero_id"
-    t.index ["user_id"], name: "index_teams_on_user_id"
+    t.index ["hero_id"], name: "index_user_heros_on_hero_id"
+    t.index ["user_id"], name: "index_user_heros_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,6 +47,6 @@ ActiveRecord::Schema.define(version: 2023_01_17_020333) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "teams", "heros"
-  add_foreign_key "teams", "users"
+  add_foreign_key "user_heros", "heros"
+  add_foreign_key "user_heros", "users"
 end

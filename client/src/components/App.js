@@ -32,11 +32,26 @@ function App() {
   //console.log("2", heroArray)
 
   function handleTeamAdd(hero){
-    console.log(hero)
-    // needs to fetch that the hero was added to a team by x user
-    // 
-  }
+    //console.log(hero)
+    const userHero = {
+      user_id: user.id,
+      hero_id: hero.id,
+    }
+    console.log(userHero)
+    fetch("/user_heros", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(userHero)
+    }).then((r) => r.json())
+      .then(console.log)
+// USE RETURNED DATA TO POPULATE ANOTHER HEROCARD ON THE MYTEAM PAGE
 
+    // needs to fetch that the hero was added to a team by x user
+    // backend needs to register current user and add hero to that user's team
+
+    // each user has one team, each team has one user
+    // use user.id
+  }
 
 
   return (
