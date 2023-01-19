@@ -9,7 +9,13 @@ class UserHerosController < ApplicationController
   end
   
   def create
+    #ONLY IF THE NUMBER OF ENTRIES FOR X USER ARE LESS THAN 5:
+    
     user_hero_join = UserHero.create!(user_hero_params)
+    
+    #want this to return to frontend :USER_ID.HEROS all heros for current user
+    # SEND BACK ALL OF THE HEROS (MAX 5) FOR THE CURRENT USER
+    # INCLUDE A SUMMED POWER LEVEL, all heros => Team
     render json: user_hero_join, status: :created
   end
 

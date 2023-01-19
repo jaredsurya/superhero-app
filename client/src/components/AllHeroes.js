@@ -6,6 +6,7 @@ function AllHeroes({ heroArray, setHeroArray, handleTeamAdd }) {
   return (
     <div>
       <h3>Below are superhero cards. Click them to add to your team.</h3>
+      // IF THE CARD IS RENDERED ON THIS PAGE, BUTTON SAYS ADD
       {heroArray.map((hero) => <HeroCard key={hero.id} hero={hero} handleTeamAdd={handleTeamAdd} />)}
     </div>
   )

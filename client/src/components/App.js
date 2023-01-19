@@ -11,6 +11,7 @@ import AllTeams from "./AllTeams";
 function App() {
   const [user, setUser] = useState(null)
   const [heroArray, setHeroArray] = useState([])
+  const [currentTeam, setCurrentTeam] = useState([])
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -59,7 +60,7 @@ function App() {
     <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home user={user}/>}/>
-        <Route path="/myteam" element={<MyTeam/>}/>
+        <Route path="/myteam" element={<MyTeam team={currentTeam} />}/>
         <Route path="/allheroes" element={<AllHeroes heroArray={heroArray} setHeroArray={setHeroArray} handleTeamAdd={handleTeamAdd} />}/>
         <Route path="/allteams" element={<AllTeams/>}/>
       </Routes>
