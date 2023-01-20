@@ -11,7 +11,7 @@ import AllTeams from "./AllTeams";
 function App() {
   const [user, setUser] = useState(null)
   const [heroArray, setHeroArray] = useState([])
-  const [currentTeam, setCurrentTeam] = useState([])
+  //const [currentTeam, setCurrentTeam] = useState([])
   //const [errors, setErrors] = useState([])
   const [userTeam, setUserTeam] = useState([])
 
@@ -48,8 +48,8 @@ function App() {
     }).then((r) => {
       if (r.ok){
         r.json()
-        .then(r => setUserTeam(r))
-        console.log(userTeam)
+        .then(data => setUserTeam([data]))
+        //console.log(userTeam)
       }
       else {
         r.json()
@@ -57,7 +57,7 @@ function App() {
         
       }
     })
-
+//console.log(userTeam)
    
 // USE RETURNED DATA TO POPULATE ANOTHER HEROCARD ON THE MYTEAM PAGE
 
@@ -74,7 +74,7 @@ function App() {
     <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home user={user}/>}/>
-        <Route path="/myteam" element={<MyTeam team={currentTeam} />}/>
+        <Route path="/myteam" element={<MyTeam team={userTeam} />}/>
         <Route path="/allheroes" element={<AllHeroes heroArray={heroArray} setHeroArray={setHeroArray} handleTeamAdd={handleTeamAdd} />}/>
         <Route path="/allteams" element={<AllTeams/>}/>
       </Routes>

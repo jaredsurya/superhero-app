@@ -12,14 +12,13 @@ class UserHerosController < ApplicationController
   # UserHero.length.where(user_id = params[user_id])
   def create
     team_count = User.find(params[:user_id]).heros.count
-    team = User.find(params[:user_id]).heros
-    team_power = team.sum(&:power_level)
-    team_send = team << team_power
-    byebug
+    # byebug
     if team_count < 5
       user_hero_join = UserHero.create!(user_hero_params)
-    
-      render json: team_send, status: :created
+      team = User.find(params[:user_id]).heros
+      team_power = team.sum(&:power_level)
+      # byebug
+      render json: { team_data: team, team_power: team_power }, status: :created
     else
       render json: { errors: ["No more than 5 heros per team!"] }, status: :unprocessable_entity
     end

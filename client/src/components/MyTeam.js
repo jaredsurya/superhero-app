@@ -4,6 +4,8 @@ import HeroCard from './HeroCard'
 // Contains the 5 hero cards with their details, that the user has picked. If less than 5 are
 // picked then an empty space with  "+" is shown linking to AllHeroes page for selection.
 function MyTeam({team}) {
+  const {team_data, team_power} = team
+  console.log(team)
   return (
     <div>
       <h3>This is the team you have built so far. Click a hero to return them to the All Heroes page.</h3>
