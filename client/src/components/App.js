@@ -12,6 +12,8 @@ function App() {
   const [user, setUser] = useState(null)
   const [heroArray, setHeroArray] = useState([])
   const [currentTeam, setCurrentTeam] = useState([])
+  //const [errors, setErrors] = useState([])
+  const [userTeam, setUserTeam] = useState([])
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -33,7 +35,7 @@ function App() {
   //console.log("2", heroArray)
 
   function handleTeamAdd(hero){
-    //console.log(hero)
+    
     const userHero = {
       user_id: user.id,
       hero_id: hero.id,
@@ -43,8 +45,20 @@ function App() {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(userHero)
-    }).then((r) => r.json())
-      .then(console.log)
+    }).then((r) => {
+      if (r.ok){
+        r.json()
+        .then(r => setUserTeam(r))
+        console.log(userTeam)
+      }
+      else {
+        r.json()
+        .then(r => alert(r.errors))
+        
+      }
+    })
+
+   
 // USE RETURNED DATA TO POPULATE ANOTHER HEROCARD ON THE MYTEAM PAGE
 
     // needs to fetch that the hero was added to a team by x user
