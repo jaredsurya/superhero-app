@@ -29,6 +29,8 @@ function LoginForm ({setUser}) {
     })
   }
 
+  const displayErrors = () => errors.map((err) => (<p key={err}>{err}</p>))
+
   return (
     <div>
       <h3>Please log in:</h3>
@@ -48,7 +50,7 @@ function LoginForm ({setUser}) {
           onChange={(e) => setPassword(e.target.value)}
         /><br/>
         <input type="submit" value="Submit" />
-        {errors.map((err) => (<p key={err}>{err}</p>))}
+        {errors ? displayErrors : null}
       </form>
     </div>
 )}

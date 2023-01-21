@@ -4,8 +4,7 @@ class UserHerosController < ApplicationController
     all_teams = UserHero.all
     render json: all_teams
     
-    # GET /user_heros
-    # for ALL teams
+    # 
   end
   
 
