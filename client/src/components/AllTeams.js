@@ -5,19 +5,24 @@ import React, { useEffect, useState } from "react";
 function AllTeams() {
   const [allTeams, setAllTeams] = useState([])
 
-  useEffect(() => {
-    fetch("/user_heros").then((r) => {
-      if (r.ok) {
-        r.json().then((data) => {
-          setAllTeams(data)
-          sortTeamData()
-        })
-      }
-      else {
-        alert("ERROR IN ALL_TEAMS")
-      }
-    })
-  }, [])
+
+  // WE MAY want to use User controller INDEX method instead of user_heros
+  // herosByUser = User.all
+  // render json: herosByUser, include: :heros
+
+  // useEffect(() => {
+  //   fetch("/user_heros").then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((data) => {
+  //         setAllTeams(data)
+  //         sortTeamData()
+  //       })
+  //     }
+  //     else {
+  //       alert("ERROR IN ALL_TEAMS")
+  //     }
+  //   })
+  // }, [])
 
   function sortTeamData(){
     console.log("allTeams", allTeams)
