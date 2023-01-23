@@ -166,17 +166,17 @@ function App() {
   useEffect(() => {
     ensureStateIsSet(user)
     .then(() => {
-        fetch(`/user_heros/${user.id}`)
-        .then(res => res.json())
-        .then(data => {
-            if (!data) {
-                data = {
-                    team_power: 0,
-                    heroes: []
-                }
+      fetch(`/user_heros/${user.id}`)
+      .then(res => res.json())
+      .then(data => {
+        if (!data) {
+          data = {
+            team_power: 0,
+            heroes: []
             }
-            setUserTeam(data)
-        })
+          }
+        setUserTeam(data)
+      })
   })
   }, [user])
   
@@ -197,6 +197,7 @@ console.log("userTeam", userTeam)
       if (r.ok){
         r.json()
         .then(data => setUserTeam(data))
+        alert(`${hero.name} was added to your team!`)
       }
       else {
         r.json()

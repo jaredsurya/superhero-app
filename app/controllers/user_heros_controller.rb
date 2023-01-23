@@ -12,20 +12,20 @@ class UserHerosController < ApplicationController
   def create
     team_count = User.find(params[:user_id]).heros.count
     
-    if UserHero.find_by(user_hero_params)
-      render json: { errors: ["You've already added this hero. Please select another!"] }, status: :unprocessable_entity
-    elsif team_count < 5
+    if team_count < 5
       user_hero_join = UserHero.create!(user_hero_params)
       user = User.find(params[:user_id])
       team = user.heros
       team_power = team.sum(&:power_level)
       user.team_power = team_power
       user.save
-
+    
       team_data = { team_power: team_power, heroes: team }
-      
-      # byebug
+    
+    # byebug
       render json: team_data, status: :created
+    elsif UserHero.find_by(user_hero_params)
+      render json: { errors: ["You've already added this hero. Please select another!"] }, status: :unprocessable_entity
     else
       render json: { errors: ["No more than 5 heros per team!"] }, status: :unprocessable_entity
     end

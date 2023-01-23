@@ -15,7 +15,10 @@ function MyTeam({ team, ensureStateIsSet, handleTeamDelete }) {
           const teamData = () => {
             return (
               <>
-                <h1>Your current team's power level is <em>{team_power}!</em></h1>
+                {team_power ? 
+                <h1>Your current team's power level is <em>{team_power}!</em></h1> :
+                <h1>Go to the "All Heroes" page to put a team together!</h1>}
+                
                 <br></br>
                 {heroes.map((hero) => <HeroCard key={hero.id} doFunction={handleTeamDelete} hero={hero} type="delete" />)}
               </>
@@ -29,7 +32,7 @@ function MyTeam({ team, ensureStateIsSet, handleTeamDelete }) {
 
   return (
     <div>
-      <h3>This is the team you have built so far. Click a hero to return them to the All Heroes page.</h3>
+      <h3>This page shows your team. See how it compares to other teams by visiting "All Teams".</h3>
       {/* IF THE CARD IS RENDERED ON THIS PAGE, BUTTON SAYS REMOVE */}
       {done ? heroCards : null}
     </div>
