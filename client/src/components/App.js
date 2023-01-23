@@ -180,6 +180,8 @@ function App() {
   })
   }, [user])
   
+console.log("userTeam", userTeam)
+
   if (!user) return <Router><Login setUser={setUser} /></Router>
   
   function handleTeamAdd(hero){

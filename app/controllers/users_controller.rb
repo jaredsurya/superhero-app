@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def create
-    byebug
     @user = User.create!(user_params)
     login_user
     render json: @user, status: 201

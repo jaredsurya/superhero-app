@@ -30,20 +30,23 @@ class UserHerosController < ApplicationController
       render json: { errors: ["No more than 5 heros per team!"] }, status: :unprocessable_entity
     end
   end
-    #ONLY IF THE NUMBER OF ENTRIES FOR X USER ARE LESS THAN 5:
-    
-    #want this to return to frontend :USER_ID.HEROS all heros for current user
-    # SEND BACK ALL OF THE HEROS (MAX 5) FOR THE CURRENT USER
-    # INCLUDE A SUMMED POWER LEVEL, all heros => Team
 
   def show
     user = User.find(params[:id])
     team_data = { team_power: user.team_power, heroes: user.heros }
     render json: team_data, status: 200
   end
-# WHEN THE USER COUNT IS FULL (=< 5), REJECT NEW REQUESTS  
-# Backend only accepts 5 heros of a set user_id
-# After 5 of the same user_id, return a custom error
+
+  def destroy
+    user_hero = UserHero.find_by(hero_id: params[:id])
+    user_hero.destroy
+    hero = Hero.find(params[:id])
+    user = current_user
+    user.team_power -= hero.power_level
+    user.save
+    render json: user_hero
+  end
+
   private
 
   def user_hero_params
