@@ -24,9 +24,9 @@ function AllTeams() {
   //   })
   // }, [])
 
-  function sortTeamData(){
-    console.log("allTeams", allTeams)
-  }
+  // function sortTeamData(){
+  //   console.log("allTeams", allTeams)
+  // }
 
   
   return (
