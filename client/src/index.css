@@ -39,3 +39,7 @@ img {
   margin: auto;
   padding: none;
 }
+
+em {
+  color: red;
+}

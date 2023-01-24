@@ -12,7 +12,7 @@ const HeroCard = ({ hero, doFunction, type }) => {
     <div className='card'>
       <h3 className='title'>{hero.name}</h3>
       <div className='card-image-container'>  
-        <img className='image' alt='hero' src={hero.image} />
+        <img className='image' alt='broken hero image' src={hero.image} />
       </div>
       <ul>
         <li>Full name: {hero.full_name}</li>

@@ -152,7 +152,7 @@ function App() {
     }
 
   useEffect(() => {
-        fetch("/me")
+    fetch("/me")
         .then(res => res.json())
         .then(data => setUser(data))
   }, [])
@@ -197,7 +197,7 @@ console.log("userTeam", userTeam)
       if (r.ok){
         r.json()
         .then(data => setUserTeam(data))
-        alert(`${hero.name} was added to your team!`)
+        alert(`${hero.name} was added to your team with ${hero.power_level} power points!`)
       }
       else {
         r.json()
