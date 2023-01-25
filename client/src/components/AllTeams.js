@@ -6,6 +6,7 @@ function AllTeams({ensureStateIsSet}) {
   const [allTeams, setAllTeams] = useState(null)
   const [done, setDone] = useState(false)
   const [heroCards, setHeroCards] = useState(null)
+  const [teamsJSX, setTeamsJSX] = useState(null)
 
   useEffect(() => {
     fetch("/users").then((r) => {
@@ -20,22 +21,22 @@ function AllTeams({ensureStateIsSet}) {
       }
     })
   }, [])
-// below is isas code
+// HAVE TO CLEAN UP TEAMSJSX VARIABLE, MAKE IT PRODUCE THE JSX FOR USER AND THEIR HEROES
+// USE STATE WHERE NECESSARY AND CLEAN UP UNUSED STATE VARIABLES
   useEffect(() => {
     if (allTeams){
-      console.log(allTeams)
-      const teamsJSX = allTeams.map((team) => {
-        console.log(team)
-      })
-      const teamData = () => {
+      console.log("ALL", allTeams)
+      setTeamsJSX(allTeams.map((team) => {
         return (
-          <>
-            <h1>hi</h1>
-            <br/>
-            //map over allteams to produce herocards without buttons
-          </>
-        )}
-      setHeroCards(teamData)
+          <div className="team">
+            <h1>{team.first_name}'s team:</h1>
+            <h2>Power level: {team.team_power}!</h2>
+            {team.heros.map((hero) => <HeroCard key={hero.id} hero={hero} type="blank" />)}
+          </div>
+        )
+      }))
+      
+      //setHeroCards(teamData)
     }
 }, [done, allTeams])
 
@@ -52,7 +53,7 @@ ensureStateIsSet(allTeams)
   return (
     <div>
       <h2>These are the teams made by you and other website users.</h2>
-
+      {teamsJSX}
     </div>
   )
 }

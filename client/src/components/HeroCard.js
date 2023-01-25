@@ -19,7 +19,7 @@ const HeroCard = ({ hero, doFunction, type }) => {
         <li>Publisher: {hero.publisher}</li>
         <li>Power level: <strong>{hero.power_level}</strong></li>
       </ul>
-      <button onClick={() => doFunction(hero)}>{text}</button>
+      {type === "blank" ? null : <button onClick={() => doFunction(hero)}>{text}</button>}
     </div>
   )
 }

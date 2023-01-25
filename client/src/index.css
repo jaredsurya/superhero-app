@@ -43,3 +43,12 @@ img {
 em {
   color: red;
 }
+
+h1 {
+  margin-bottom: 0px;
+}
+
+h2 {
+  margin: 0px;
+  margin-top: 15px;
+}
