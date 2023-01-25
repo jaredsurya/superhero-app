@@ -8,6 +8,7 @@ function LoginForm ({setUser}) {
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
+  // DISPLAY ERRORS IF USERNAME OR PASS IS INCORRECT
   
   function loginSubmit(e){
     e.preventDefault()

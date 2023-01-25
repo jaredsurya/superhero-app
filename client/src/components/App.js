@@ -143,11 +143,11 @@ function App() {
 
     // create a promise to check whether state is set or not
     function ensureStateIsSet(state) {
-        return new Promise(function (resolve, reject) {
-            (function waitForState(){
-                if (state) return resolve();
-                setTimeout(waitForState, 30);
-            })();
+      return new Promise(function (resolve, reject) {
+        (function waitForState(){
+          if (state) return resolve();
+          setTimeout(waitForState, 30);
+          })();
         });
     }
 
@@ -164,11 +164,11 @@ function App() {
   }, [])
 
   useEffect(() => {
-    ensureStateIsSet(user)
-    .then(() => {
+    if(user){
       fetch(`/user_heros/${user.id}`)
       .then(res => res.json())
       .then(data => {
+        console.log(data)
         if (!data) {
           data = {
             team_power: 0,
@@ -177,8 +177,14 @@ function App() {
           }
         setUserTeam(data)
       })
-  })
-  }, [user])
+    }
+  }, [])
+  // useEffect(() => {
+  //   ensureStateIsSet(user)
+  //   .then(() => {
+  //     
+  // })
+  // }, [user])
   
 console.log("userTeam", userTeam)
 
@@ -235,7 +241,7 @@ console.log("userTeam", userTeam)
         <Route path="/" element={<Home user={user}/>}/>
         <Route path="/myteam" element={<MyTeam handleTeamDelete={handleTeamDelete} team={userTeam} ensureStateIsSet={ensureStateIsSet} />}/>
         <Route path="/allheroes" element={<AllHeroes heroArray={heroArray} handleTeamAdd={handleTeamAdd} />}/>
-        <Route path="/allteams" element={<AllTeams/>}/>
+        <Route path="/allteams" element={<AllTeams ensureStateIsSet={ensureStateIsSet} />}/>
       </Routes>
     </Router>
   );
