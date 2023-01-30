@@ -18,6 +18,14 @@ class UsersController < ApplicationController
     render json: users, include: :heros
   end 
 
+  def update
+    
+  end
+
+  def destroy
+    
+  end
+
   private
 
   def user_params 

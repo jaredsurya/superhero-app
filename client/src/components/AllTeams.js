@@ -7,13 +7,20 @@ function AllTeams({ensureStateIsSet}) {
   const [done, setDone] = useState(false)
   const [heroCards, setHeroCards] = useState(null)
   const [teamsJSX, setTeamsJSX] = useState(null)
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// All Teams page must not show any blank teams
+// iterate through allTeams
+// if object.heros is an empty array render some jsx
+// else render current teamsJSX
+//
+
+  console.log(allTeams)
 
   useEffect(() => {
     fetch("/users").then((r) => {
       if (r.ok) {
         r.json().then((data) => {
           setAllTeams(data)
-          sortTeamData()
         })
       }
       else {
@@ -25,29 +32,30 @@ function AllTeams({ensureStateIsSet}) {
 // USE STATE WHERE NECESSARY AND CLEAN UP UNUSED STATE VARIABLES
   useEffect(() => {
     if (allTeams){
-      console.log("ALL", allTeams)
+      //console.log("ALL", allTeams)
       setTeamsJSX(allTeams.map((team) => {
-        return (
+        if(team.team_power){
+          return(
           <div className="team">
             <h1>{team.first_name}'s team:</h1>
-            <h2>Power level: {team.team_power}!</h2>
+            <h2>Power level: <em>{team.team_power}!</em></h2>
             {team.heros.map((hero) => <HeroCard key={hero.id} hero={hero} type="blank" />)}
           </div>
-        )
+        )} 
       }))
       
       //setHeroCards(teamData)
     }
 }, [done, allTeams])
 
-ensureStateIsSet(allTeams)
-.then(() => setDone(true))
+// ensureStateIsSet(allTeams)
+// .then(() => setDone(true))
 
 // above is isas code
 
-  function sortTeamData(){
-    console.log("allTeams", allTeams)
-  }
+  // function sortTeamData(){
+  //   console.log("allTeams", allTeams)
+  // }
 
   
   return (
