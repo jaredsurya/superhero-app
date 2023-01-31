@@ -19,7 +19,10 @@ class UsersController < ApplicationController
   end 
 
   def update
-    
+    user = User.find(params[:id])
+    byebug
+    user.update(email: params[:email], bio: params[:bio])
+    render json: user, status: 202
   end
 
   def destroy
@@ -29,7 +32,7 @@ class UsersController < ApplicationController
   private
 
   def user_params 
-    params.permit(:username, :first_name, :password, :password_confirmation)
+    params.permit(:id, :username, :first_name, :password, :password_confirmation, :email, :bio)
   end
 
 end

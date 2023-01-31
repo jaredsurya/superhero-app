@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :user_heros
   resources :heros
-  resources :users, only: [:index, :show, :create]
+  resources :users
 
   get "/me", to: "users#show"
   post "/signup", to: "users#create"

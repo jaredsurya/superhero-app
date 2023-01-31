@@ -63,7 +63,7 @@ function App() {
   // })
   // }, [user])
   
-console.log("userTeam", userTeam)
+//console.log("userTeam", userTeam)
 
   if (!user) return <Router><Login setUser={setUser} /></Router>
   
