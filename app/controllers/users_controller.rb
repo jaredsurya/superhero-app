@@ -20,7 +20,6 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    byebug
     user.update(email: params[:email], bio: params[:bio])
     render json: user, status: 202
   end
