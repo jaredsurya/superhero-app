@@ -115,3 +115,11 @@ button.profile {
 .welcome:hover {
   color:rgb(125, 54, 249);
 }
+
+#delete-btn {
+  color: red;
+}
+
+#delete-btn:hover {
+  font-style: italic;
+}

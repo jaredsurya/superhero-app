@@ -25,10 +25,12 @@ const Profile = ({user, setUser}) => {
   }
 
   function deleteAcct(){
-    fetch(`/users/${user.id}`, 
-    {method: "DELETE"})
-    setUser(null)
-  }
+      if (window.confirm("ARE YOU SURE?")){
+      fetch(`/users/${user.id}`, 
+      {method: "DELETE"})
+      setUser(null)
+      }
+    } 
 
   const form = <div>
   <h3>Would you like to add more info to your profile?</h3>
@@ -52,7 +54,7 @@ const showData = <div>
     <div id='centered'>
       <h1>Hello, {user.first_name}.</h1>
       {toggle ? showData : form}<br/>
-      <button className='profile' onClick={deleteAcct}>CLICK TO DELETE ACCOUNT</button>
+      <button className='profile' id="delete-btn" onClick={deleteAcct}>CLICK TO DELETE ACCOUNT</button>
     </div>
   )
 }
