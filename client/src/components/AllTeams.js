@@ -1,20 +1,9 @@
 import React, { useEffect, useState } from "react";
 import HeroCard from "./HeroCard";
-// shows all of the teams of the various users in rows of 5 with the user-owner of each team
-// displayed to the right. shows the sum total team power to the right of hero cards. 
-function AllTeams({ensureStateIsSet}) {
+ 
+function AllTeams() {
   const [allTeams, setAllTeams] = useState(null)
-  const [done, setDone] = useState(false)
-  const [heroCards, setHeroCards] = useState(null)
   const [teamsJSX, setTeamsJSX] = useState(null)
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// All Teams page must not show any blank teams
-// iterate through allTeams
-// if object.heros is an empty array render some jsx
-// else render current teamsJSX
-//
-
-  console.log(allTeams)
 
   useEffect(() => {
     fetch("/users").then((r) => {
@@ -28,11 +17,9 @@ function AllTeams({ensureStateIsSet}) {
       }
     })
   }, [])
-// HAVE TO CLEAN UP TEAMSJSX VARIABLE, MAKE IT PRODUCE THE JSX FOR USER AND THEIR HEROES
-// USE STATE WHERE NECESSARY AND CLEAN UP UNUSED STATE VARIABLES
+
   useEffect(() => {
     if (allTeams){
-      //console.log("ALL", allTeams)
       setTeamsJSX(allTeams.map((team) => {
         if(team.team_power){
           return(
@@ -43,21 +30,9 @@ function AllTeams({ensureStateIsSet}) {
           </div>
         )} 
       }))
-      
-      //setHeroCards(teamData)
     }
-}, [done, allTeams])
+  }, [allTeams])
 
-// ensureStateIsSet(allTeams)
-// .then(() => setDone(true))
-
-// above is isas code
-
-  // function sortTeamData(){
-  //   console.log("allTeams", allTeams)
-  // }
-
-  
   return (
     <div>
       <h2>These are the teams made by you and other website users.</h2>

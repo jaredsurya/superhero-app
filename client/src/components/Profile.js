@@ -1,15 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState } from 'react'
 
 const Profile = ({user, setUser}) => {
   const [toggle, setToggle] = useState(true)
 
-  if(!user.email){
-    setToggle(true)
-  }
-  
-  console.log(user)
-  //const [updatedProfile, setUpdatedProfile] = useState({"email": "", "bio": ""})
-  //console.log(JSON.stringify(updatedProfile))
   function handleSubmit(e){
     e.preventDefault()
     console.log("submitted")
@@ -23,17 +16,18 @@ const Profile = ({user, setUser}) => {
     })
     .then((r) => r.json())
     .then((data) => {
-      setToggle(!toggle)
+      setToggle(true)
       setUser(data)})
-
   }
-//console.log(user)
+
   function updateUser(){
     setToggle(false)
   }
 
   function deleteAcct(){
-
+    fetch(`/users/${user.id}`, 
+    {method: "DELETE"})
+    setUser(null)
   }
 
   const form = <div>
@@ -49,16 +43,16 @@ const Profile = ({user, setUser}) => {
 
 const showData = <div>
   <h3>Here is your profile info:</h3>
-  <p><strong>Email:</strong> {user.email}</p>
-  <p><strong>Bio:</strong> {user.bio}</p>
-  <button onClick={updateUser}>Click to update data</button>
+  <p><strong>Email:</strong> {user.email ? user.email : "You have not entered an email yet."}</p>
+  <p><strong>Bio:</strong> {user.bio ? user.bio : "You have not entered a bio yet."}</p>
+  <button className='profile' onClick={updateUser}>Click to update data</button>
 </div>
 
   return (
-    <div>
+    <div id='centered'>
       <h1>Hello, {user.first_name}.</h1>
       {toggle ? showData : form}<br/>
-      <button onClick={deleteAcct}>CLICK TO DELETE ACCOUNT</button>
+      <button className='profile' onClick={deleteAcct}>CLICK TO DELETE ACCOUNT</button>
     </div>
   )
 }

@@ -9,28 +9,24 @@ import AllHeroes from "./AllHeroes";
 import AllTeams from "./AllTeams";
 import Profile from "./Profile";
 
-// resend the fetch for the myteam data bc
-// sometimes it doesn't load 
-
 function App() {
   const [user, setUser] = useState(null)
   const [heroArray, setHeroArray] = useState([])
   const [userTeam, setUserTeam] = useState([])
-    // create a promise to check whether state is set or not
-    
-    // function ensureStateIsSet(state) {
-    //   return new Promise(function (resolve, reject) {
-    //     (function waitForState(){
-    //       if (state) return resolve();
-    //       setTimeout(waitForState, 30);
-    //       })();
-    //     });
-    // }
 
   useEffect(() => {
     fetch("/me")
-        .then(res => res.json())
-        .then(data => setUser(data))
+        .then(res => {
+          if(res.ok){
+            res.json().then((user) =>{
+              console.log(user)
+              setUser(user)
+            })
+          }else{
+            setUser(null)
+            res.json().then((err) => alert(err.error))
+          }
+        })
   }, [])
 
   useEffect(() => {
@@ -39,34 +35,8 @@ function App() {
     .then(data => setHeroArray(data))
   }, [])
 
-  // useEffect(() => {
-  //   if(user){
-  //     fetch(`/user_heros/${user.id}`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log(data)
-  //       if (!data) {
-  //         data = {
-  //           team_power: 0,
-  //           heroes: []
-  //           }
-  //         }
-  //       setUserTeam(data)
-  //     })
-  //   }
-  // }, [])
-
-  // useEffect(() => {
-  //   ensureStateIsSet(user)
-  //   .then(() => {
-  //     
-  // })
-  // }, [user])
-  
-//console.log("userTeam", userTeam)
-
   if (!user) return <Router><Login setUser={setUser} /></Router>
-  
+
   function handleTeamAdd(hero){
     const userHero = {
       user_id: user.id,
@@ -87,13 +57,6 @@ function App() {
         .then(r => alert(r.errors))
       }
     })   
-// USE RETURNED DATA TO POPULATE ANOTHER HEROCARD ON THE MYTEAM PAGE
-
-    // needs to fetch that the hero was added to a team by x user
-    // backend needs to register current user and add hero to that user's team
-
-    // each user has one team, each team has one user
-    // use user.id
   }
 
   function handleTeamDelete(hero) {
@@ -113,7 +76,7 @@ function App() {
 
   return (
     <Router className="App">
-    <NavBar user={user} setUser={setUser} setUserTeam={setUserTeam} />
+    <NavBar setUser={setUser} setUserTeam={setUserTeam} />
       <Routes>
         <Route path="/" element={<Home user={user}/>}/>
         <Route path="/myteam" element={<MyTeam user={user} handleTeamDelete={handleTeamDelete} userTeam={userTeam} setUserTeam={setUserTeam} />}/>

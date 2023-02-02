@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// toggles to show signup when showLogin reads "false"
 
 function SignUpForm({setUser}) {
   const [username, setUsername] = useState("");
@@ -8,7 +7,6 @@ function SignUpForm({setUser}) {
   const [firstName, setFirstName] = useState("")
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate()
-
 
   function signupSubmit(event)  {
     event.preventDefault();
@@ -29,7 +27,6 @@ function SignUpForm({setUser}) {
           }
       })
   }
-  
   
   return (
     <div>

@@ -25,7 +25,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    
+    user = User.find(params[:id])
+    # find a way to trigger the SessionsController destroy method
+    session.delete :user_id
+    user.destroy
+    head :no_content
   end
 
   private

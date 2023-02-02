@@ -3,7 +3,6 @@ import React, { useReducer } from 'react'
 
 function Home({user}) {
   
-  // CREATE SOME WELCOMING THING TO INITIATE THE USER INTO HIS HERO TRAINING
   return (
     <div>
       <h1>{`Welcome, ${user.first_name}`}!</h1>

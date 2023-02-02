@@ -1,18 +1,16 @@
 import React, {useState} from "react"
 import {Link, useNavigate} from "react-router-dom";
 
-// toggles to show login when showLogin reads "true"
 function LoginForm ({setUser}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
-
-  // DISPLAY ERRORS IF USERNAME OR PASS IS INCORRECT
   
   function loginSubmit(e){
     e.preventDefault()
     const user = {username: username, password: password}
+    setErrors(null)
     fetch("/login", {
         method: "POST", 
         headers: {
@@ -25,12 +23,15 @@ function LoginForm ({setUser}) {
             r.json().then((user) => setUser(user));
             navigate("/")
           } else {
-            r.json().then((err) => setErrors(err.errors));
+            r.json().then((err) => {
+              setErrors(err.errors)
+            });
           }
     })
   }
-
-  const displayErrors = () => errors.map((err) => (<p key={err}>{err}</p>))
+    const displayErrors = () => errors.map((err) => {
+    return <p key={err}>{err}</p>
+  })
 
   return (
     <div>
@@ -51,7 +52,7 @@ function LoginForm ({setUser}) {
           onChange={(e) => setPassword(e.target.value)}
         /><br/>
         <input type="submit" value="Submit" />
-        {errors ? displayErrors : null}
+        {errors ? displayErrors() : null}
       </form>
     </div>
 )}

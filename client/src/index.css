@@ -37,7 +37,7 @@ img {
   position: absolute;
   width: 100%;
   margin: auto;
-  padding: none;
+  padding: 2px;
 }
 
 em {
@@ -51,4 +51,67 @@ h1 {
 h2 {
   margin: 0px;
   margin-top: 15px;
+}
+
+h3.title {
+  text-align: center;
+}
+
+a.nav{
+  background-color: rgb(255, 99, 43);
+  width: 15%;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+.nav:visited {
+  color: white;
+}
+
+.nav:hover {
+  color: rgb(125, 54, 249);
+  font-style: italic;
+  cursor: grab;
+}
+
+.navbar {
+  align-self: center;
+  background-color: rgb(255, 99, 43);
+  width: 100%;
+}
+
+button {
+  width: 82%;
+  position: relative;
+  left: 9%
+}
+
+button.profile {
+  width: fit-content;
+  left: auto;
+}
+
+#centered {
+  width:fit-content;
+  position: absolute;
+  left: 38%;
+  -ms-transform: translate(-50, -50);
+}
+
+.welcome {
+  background-color: rgb(255, 99, 43);
+  color: white;
+  height: 33px;
+  font-size: medium;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-left: 10px;
+  
+}
+
+.welcome:hover {
+  color:rgb(125, 54, 249);
 }

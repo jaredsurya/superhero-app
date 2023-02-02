@@ -5,8 +5,9 @@ import HeroCard from './HeroCard'
 function AllHeroes({ heroArray, handleTeamAdd }) {
   return (
     <div>
-      <h2>Below are superhero cards. <br/>Click add to build your team. <br/>Maximum of 5 heroes per team.</h2>
-      {/* IF THE CARD IS RENDERED ON THIS PAGE, BUTTON SAYS ADD */}
+      <h2>Below are superhero cards. 
+        <br/>Click add to build your team. 
+        <br/>Maximum of 5 heroes per team.</h2>
       <div className='cards'>
         {heroArray.map((hero) => <HeroCard key={hero.id} hero={hero} doFunction={handleTeamAdd} type="add" />)}
       </div>
