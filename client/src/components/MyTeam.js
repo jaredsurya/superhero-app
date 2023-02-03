@@ -28,7 +28,7 @@ function MyTeam({ userTeam, setUserTeam, user, handleTeamDelete }) {
       if (team_power > 0) {
         setTeamJSX(
           <>
-            <h1>
+            <h1 className="team">
               Your team's power level is <em>{team_power}!</em>
             </h1>
             {heroes.map((hero) => {

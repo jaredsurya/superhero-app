@@ -6,13 +6,13 @@ function Home({ user }) {
     <div>
       <h1>{`Welcome, ${user.first_name}`}!</h1>
       <h3>
-        Your heroes are waiting for you! <br />
-        Check them out on the following pages.
+        The heroes are waiting for you! <br />
+        Check them out and make your team on the following pages.
         <br />
-        The navigation bar is shown at the top of every page.
+        Navigate from page to page using the orange bar above.
         <br />
         <br />
-        We must thank <em>superheroapi.com</em>, for without this resource this
+        We must thank <em><a className="a" href="https://superheroapi.com/">superheroapi.com</a></em> and <em><a className="a" href="https://flatironschool.com/">Flatiron School</a></em>, for without <br/>these resources this
         page would not have been possible.
       </h3>
     </div>

@@ -47,7 +47,7 @@ def heroesdata
   Hero.create(final_hero)
 end
 
-25.times { heroesdata() }
+35.times { heroesdata() }
 
 UserHero.create(user_id: "1", hero_id: "7")
 UserHero.create(user_id: "1", hero_id: "2")

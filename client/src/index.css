@@ -18,11 +18,14 @@ code {
 
 .card {
   display: inline-grid;
-  width: 20%;
+  width: 19%;
+  background-color: white;
+  border-radius: 21px;
+  margin: .42vw;
+  border: .05vw solid black;
 }
 
 .card-image-container {
-  /* justify-self: center; */
   position: relative;
   height: 18rem;
   overflow: hidden;
@@ -30,6 +33,10 @@ code {
 
 .card > ul li {
   font-size: 1vw;
+}
+
+.card > button {
+  margin-bottom: 10px;
 }
 
 img {
@@ -52,13 +59,15 @@ h2 {
   margin: 0px;
   margin-top: 23px;
   margin-left: 4px;
-  margin-bottom: 0px;
+  margin-bottom: 26px;
 }
 
 h3.title {
   text-align: center;
   margin-bottom: 0px;
-  margin-top: 43px;
+  margin-top: 16px;
+  font-style: italic;
+  font-size: 123%;
 }
 
 a.nav {
@@ -69,6 +78,16 @@ a.nav {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: white;
   text-decoration: none;
+  -webkit-text-stroke: .3px black;
+}
+
+.a {
+  text-decoration: none;
+  color: red;
+}
+
+.a:visited {
+  color: red;
 }
 
 .nav:visited {
@@ -78,7 +97,7 @@ a.nav {
 .nav:hover {
   color: rgb(125, 54, 249);
   font-style: italic;
-  cursor: grab;
+  cursor: pointer;
 }
 
 .navbar {
@@ -91,10 +110,11 @@ button {
   width: 82%;
   position: relative;
   left: 9%;
+  border-radius: 7px;
 }
 
 button:hover {
-  cursor: grab;
+  cursor: pointer;
 }
 
 button.profile {
@@ -154,4 +174,16 @@ button.profile {
 
 .team {
   margin-bottom: 40px;
+}
+
+html {
+  background-color: rgb(255, 208, 186);
+}
+
+#bio {
+  width: 89%;
+}
+
+#email {
+  width: 48%;
 }
