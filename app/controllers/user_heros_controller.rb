@@ -21,17 +21,17 @@ class UserHerosController < ApplicationController
     elsif existing_team.one? { |hero| hero.id == params[:hero_id] }
       render json: { errors: ["You've already added this hero. Please select another!"] }, status: :unprocessable_entity
     else
-      user_hero_join = UserHero.create!(user_hero_params)
+      UserHero.create!(user_hero_params)
       user = User.find(params[:user_id])
       team = user.heros
       # take all users heros power levels, add them up and use it to update user
       team_power = team.sum(&:power_level)
       user.team_power = team_power
       user.save
+      user_hero_join = user.user_heros
       team_data = { team_power: user.team_power, heroes: team, user_hero_join: user_hero_join }
       # byebug
       # render user include: user.heros
-      # Doesn't sum all of the numbers in teampower
       render json: team_data, status: :created
     end
   end

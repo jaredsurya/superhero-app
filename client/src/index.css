@@ -55,6 +55,7 @@ h2 {
 
 h3.title {
   text-align: center;
+  margin-bottom: 0px;
 }
 
 a.nav{
@@ -122,4 +123,23 @@ button.profile {
 
 #delete-btn:hover {
   font-style: italic;
+}
+
+.nickname {
+  text-align: center;
+  font-size: x-small;
+  margin-top: 3px;
+  margin-bottom: 7px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.empty {
+  text-align: center;
+  font-size: x-small;
+  margin-top: 3px;
+  margin-bottom: 7px;
+  font-weight: 300;
+  font-style: italic;
+  color: white;
 }

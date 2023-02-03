@@ -20,7 +20,7 @@ function MyTeam({ userTeam, setUserTeam, user, handleTeamDelete }) {
       })
     }
   }, [])
-  let nickname
+  
   console.log(userTeam)
   useEffect(() => {  
     if(userTeam){
@@ -30,7 +30,18 @@ function MyTeam({ userTeam, setUserTeam, user, handleTeamDelete }) {
         setTeamJSX(
           <>
             <h1>Your team's power level is <em>{team_power}!</em></h1>
-            {heroes.map((hero) => <HeroCard key={hero.id} nickname={nickname} doFunction={handleTeamDelete} hero={hero} type="delete" />)}
+            {heroes.map((hero) => {
+              
+              let nickname = userTeam.user_hero_join.find((user_hero) => user_hero.hero_id == hero.id).nickname
+              return (
+              <HeroCard 
+                key={hero.id} 
+                nickname={nickname} 
+                doFunction={handleTeamDelete} 
+                hero={hero} 
+                type="delete" />
+              )
+            })}
           </>
         )
       } else {

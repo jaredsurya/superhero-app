@@ -11,7 +11,7 @@ const HeroCard = ({ hero, doFunction, type, nickname }) => {
   return (
     <div className="card">
       <h3 className="title">{hero.name}</h3>
-      {nickname ? <p>{nickname}</p> : null}
+      {nickname ? <p className="nickname">"{nickname}"</p> : <p className="empty" >WORD</p>}
       <div className="card-image-container">
         <img className="image" alt="broken hero image" src={hero.image} />
       </div>
