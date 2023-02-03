@@ -1,6 +1,6 @@
 import React from "react";
 
-const HeroCard = ({ hero, doFunction, type }) => {
+const HeroCard = ({ hero, doFunction, type, nickname }) => {
   let text;
   if (type === "delete") {
     text = "REMOVE FROM TEAM";
@@ -11,6 +11,7 @@ const HeroCard = ({ hero, doFunction, type }) => {
   return (
     <div className="card">
       <h3 className="title">{hero.name}</h3>
+      {nickname ? <p>{nickname}</p> : null}
       <div className="card-image-container">
         <img className="image" alt="broken hero image" src={hero.image} />
       </div>

@@ -47,6 +47,7 @@ function App() {
     const userHero = {
       user_id: user.id,
       hero_id: hero.id,
+      nickname: nickname,
     };
     fetch("/user_heros", {
       method: "POST",
@@ -63,7 +64,7 @@ function App() {
       }
     });
   }
-
+console.log(userTeam)
   function handleTeamDelete(hero) {
     fetch(`/user_heros/${hero.id}`, {
       method: "DELETE",
