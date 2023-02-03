@@ -20,12 +20,12 @@ function LoginForm({ setUser }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          setUser(user)
+          setUser(user);
         });
         navigate("/");
       } else {
         r.json().then((err) => {
-          setErrors(err.errors)
+          setErrors(err.errors);
         });
       }
     });
@@ -43,7 +43,7 @@ function LoginForm({ setUser }) {
     <div>
       <h3>Please log in:</h3>
       <form onSubmit={loginSubmit}>
-        <label for="username">Username: </label>
+        <label htmlFor="username">Username: </label>
         <input
           type="text"
           id="username"
@@ -51,7 +51,7 @@ function LoginForm({ setUser }) {
           onChange={(e) => setUsername(e.target.value)}
         />
         <br />
-        <label for="password">Password: </label>
+        <label htmlFor="password">Password: </label>
         <input
           type="password"
           id="password"

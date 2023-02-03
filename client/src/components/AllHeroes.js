@@ -10,7 +10,7 @@ function AllHeroes({ heroArray, handleTeamAdd }) {
         <br />
         Click ADD to build your team.
         <br />
-        Only 5 heroes allowed per team.
+        Only <em>5</em> heroes allowed per team.
       </h2>
       <div className="cards">
         {heroArray.map((hero) => (

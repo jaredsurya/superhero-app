@@ -19,10 +19,10 @@ require 'rest-client'
 # users team is ranked by overall strength and sorted in a list with other users' teams
 # users can leave comments on other users' teams, edit and delete comments as well
 
- user1 = User.create(username: "Apple", password: "1234", first_name: "Fred")
- user2 = User.create(username: "Crunchy", password: "1234", first_name: "Jimmy")
+ user1 = User.create(username: "GreenMan1", password: "1234", first_name: "Jemal")
+ user2 = User.create(username: "Torch1212", password: "1234", first_name: "Torchlight")
 
-puts "Seeding!"
+puts "Seeding! ..."
 
 
 def heroesdata
@@ -32,10 +32,14 @@ def heroesdata
   if power_level == 0
     power_level = rand(1..150)
   end
+  full_name = hero_array["biography"]["full-name"]
+  if full_name == ""
+    full_name = "not known"
+  end
   
   final_hero = {
     name: hero_array["name"], 
-    full_name: hero_array["biography"]["full-name"], 
+    full_name: full_name, 
     power_level: power_level,
     publisher: hero_array["biography"]["publisher"],
     image: hero_array["image"]["url"]
@@ -45,9 +49,13 @@ end
 
 25.times { heroesdata() }
 
-# UserHero.create(user_id: "1", hero_id: "1")
-# UserHero.create(user_id: "1", hero_id: "2")
-# UserHero.create(user_id: "2", hero_id: "3")
-# UserHero.create(user_id: "2", hero_id: "4")
+UserHero.create(user_id: "1", hero_id: "7")
+UserHero.create(user_id: "1", hero_id: "2")
+UserHero.create(user_id: "1", hero_id: "19")
+UserHero.create(user_id: "2", hero_id: "3")
+UserHero.create(user_id: "2", hero_id: "14")
+UserHero.create(user_id: "2", hero_id: "16")
+UserHero.create(user_id: "2", hero_id: "12")
+UserHero.create(user_id: "2", hero_id: "9")
 
 puts "DONE 💪🏽 🐉 ❗"

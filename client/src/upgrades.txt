@@ -1,0 +1,3 @@
+=> show nickname on all teams page
+=> let teams battle one another
+   - battle button with random multiplier on each team power, rand(-1.35..1.35), producing a winner

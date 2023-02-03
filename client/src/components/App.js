@@ -18,7 +18,6 @@ function App() {
     fetch("/me").then((res) => {
       if (res.ok) {
         res.json().then((user) => {
-          console.log(user);
           setUser(user);
         });
       } else {
@@ -42,8 +41,8 @@ function App() {
     );
 
   function handleTeamAdd(hero) {
-    let nickname = prompt("Enter a nickname for your hero:", "")
-    console.log(nickname)
+    let nickname = prompt("Enter a nickname for your hero:", "");
+    console.log(nickname);
     const userHero = {
       user_id: user.id,
       hero_id: hero.id,
@@ -57,14 +56,16 @@ function App() {
       if (r.ok) {
         r.json().then((data) => setUserTeam(data));
         alert(
-          `${hero.name} was added to your team with ${hero.power_level} power points!`
+          `${nickname ? nickname : hero.name} added! Your team received +${
+            hero.power_level
+          } power points!`
         );
       } else {
         r.json().then((r) => alert(r.errors));
       }
     });
   }
-console.log(userTeam)
+
   function handleTeamDelete(hero) {
     fetch(`/user_heros/${hero.id}`, {
       method: "DELETE",
