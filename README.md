@@ -34,6 +34,10 @@ If you haven't already, visit the resources pages below and install ruby, NodeJS
 
 After that, clone this repository and navigate to it in your terminal. Run `bundle install` followed by `rails db:migrate db:seed` and `npm install --prefix client`. Once everything has loaded, run `rails s` and `npm start --prefix client` to get your servers started. Now, the program will be live and accessed by visiting [localhost:4000](localhost:4000/).
 
+## Video Walkthrough
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FxLZ1pdILOk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Resources
 
 - [Flatiron School](https://flatironschool.com)
