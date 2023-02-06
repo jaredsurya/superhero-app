@@ -9,7 +9,7 @@ This project is a single page application, made with React and Rails API. It was
 
 Usage of this superhero app is simple and straightforward. The user must sign in or create an account to gain access. Once the user has been authenticated, they may pick up to 5 heroes from the "All Heroes" page. To view their compiled team, the user must go to the "My Team" page. There, you can seem your accumulated "team power" as well. On the next page, "All Teams", each user's team is shown along with its team power. Next, on the "My Profile" page, the user can create and update entries for "e-mail" and "bio".
 
-Superhero cards view:
+**Superhero cards view:**
 <img width="861" alt="Screen Shot 2023-02-05 at 2 57 38 PM" src="https://user-images.githubusercontent.com/93106753/216841976-a7a88024-90e9-455a-b926-fb28fa55fb46.png">
 
 This app is currently deployed, and rendered at [superhero-app.onrender.com](https://superhero-app.onrender.com/).
