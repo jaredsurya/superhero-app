@@ -1,5 +1,5 @@
 # Superhero Team Builder
-**WELCOME!**
+~~~~~~~~~ **WELCOME!** ~~~~~~~~~
 
 <img width="1285" alt="Screen Shot 2023-02-05 at 2 56 41 PM" src="https://user-images.githubusercontent.com/93106753/216841923-570cf393-3abe-4b47-b941-b45f0f8e98ef.png">
 
