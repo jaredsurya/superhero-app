@@ -14,6 +14,8 @@ Usage of this superhero app is simple and straightforward. The user must sign in
 
 This app is currently deployed, and rendered at [superhero-app.onrender.com](https://superhero-app.onrender.com/).
 
+View the video walkthrough [here](https://www.youtube.com/FxLZ1pdILOk).
+
 ## E.R.D.
 
 The diagram below shows the entity relationships as they are organized in this app. As you can see, users and heroes are joined together through the user-hero joins table in the middle. This allows for a many-to-many relationship between the users and heroes. Effectively, each user has many user-hero instances and thus has many heroes through the user-hero instances. Also, it follows that a hero can have many users through user-heros as well. The user-hero table contains the instances which make up each users' team. All of the matching user_ids inside the user-heros table make up a single team, pairing with the user which has that ID number.
@@ -33,10 +35,6 @@ don't already have them.
 If you haven't already, visit the resources pages below and install ruby, NodeJS, and npm.
 
 After that, clone this repository and navigate to it in your terminal. Run `bundle install` followed by `rails db:migrate db:seed` and `npm install --prefix client`. Once everything has loaded, run `rails s` and `npm start --prefix client` to get your servers started. Now, the program will be live and accessed by visiting [localhost:4000](localhost:4000/).
-
-## Video Walkthrough
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FxLZ1pdILOk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Resources
 
