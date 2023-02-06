@@ -12,9 +12,9 @@ Usage of this superhero app is simple and straightforward. The user must sign in
 **Superhero cards view:**
 <img width="861" alt="Screen Shot 2023-02-05 at 2 57 38 PM" src="https://user-images.githubusercontent.com/93106753/216841976-a7a88024-90e9-455a-b926-fb28fa55fb46.png">
 
-This app is currently deployed, and rendered at [superhero-app.onrender.com](https://superhero-app.onrender.com/).
-
 View the video walkthrough [here](https://www.youtube.com/watch?v=FxLZ1pdILOk).
+
+This app is currently deployed, and rendered at [superhero-app.onrender.com](https://superhero-app.onrender.com/).
 
 ## E.R.D.
 
