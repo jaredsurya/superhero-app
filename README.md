@@ -14,7 +14,7 @@ Usage of this superhero app is simple and straightforward. The user must sign in
 
 This app is currently deployed, and rendered at [superhero-app.onrender.com](https://superhero-app.onrender.com/).
 
-View the video walkthrough [here](https://www.youtube.com/FxLZ1pdILOk).
+View the video walkthrough [here](https://www.youtube.com/watch?v=FxLZ1pdILOk).
 
 ## E.R.D.
 
