@@ -21,7 +21,6 @@ This app is currently deployed, and rendered at [superhero-app.onrender.com](htt
 The diagram below shows the entity relationships as they are organized in this app. As you can see, users and heroes are joined together through the user-hero joins table in the middle. This allows for a many-to-many relationship between the users and heroes. Effectively, each user has many user-hero instances and thus has many heroes through the user-hero instances. Also, it follows that a hero can have many users through user-heros as well. The user-hero table contains the instances which make up each users' team. All of the matching user_ids inside the user-heros table make up a single team, pairing with the user which has that ID number.
 
 ![Screen Shot 2023-02-03 at 4 55 56 PM](https://user-images.githubusercontent.com/93106753/216843178-7bfb752d-ee03-4387-bf4e-59a474d5664a.png)
-
 ## Requirements
 
 - Ruby 2.7.4
