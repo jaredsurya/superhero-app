@@ -100,7 +100,7 @@ function App() {
         <Route
           path="/allheroes"
           element={
-            <AllHeroes heroArray={heroArray} handleTeamAdd={handleTeamAdd} />
+            <AllHeroes heroArray={heroArray} setHeroArray={setHeroArray} handleTeamAdd={handleTeamAdd} />
           }
         />
         <Route path="/allteams" element={<AllTeams />} />
