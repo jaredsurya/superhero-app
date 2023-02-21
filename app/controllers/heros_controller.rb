@@ -5,4 +5,8 @@ class HerosController < ApplicationController
     render json: heroes
   end
 
+  def create
+    # create new hero here
+  end
+
 end
