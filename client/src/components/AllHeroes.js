@@ -24,9 +24,6 @@ function AllHeroes({ heroArray, handleTeamAdd, setHeroArray }) {
         r.json().then((heroes) => {
           setHeroArray(heroes);
         });
-        // TAKE THE HERO SUBMIT FUNCTION AND MAKE IT PERSIST TO THE BACKEND WHERE CREATE ROUTE MAKES HERO AND RETURNS ALL HEROES
-        // clear out text fields
-        //navigate("/");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

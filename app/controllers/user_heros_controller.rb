@@ -44,10 +44,15 @@ class UserHerosController < ApplicationController
     user = current_user
     hero = Hero.find(params[:id])
     user_hero = UserHero.find_by(hero_id: params[:id])
-    user.team_power -= hero.power_level
-    user.save
-    user_hero.destroy
-    render json: user_hero
+  
+    if user_hero.user_id == user.id # Check if the current user owns this user_hero
+      user.team_power -= hero.power_level
+      user.save
+      user_hero.destroy
+      render json: user_hero
+    else
+      render json: { error: "You are not authorized to delete this hero." }, status: :unauthorized
+    end
   end
 
   private

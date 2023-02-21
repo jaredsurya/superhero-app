@@ -30,6 +30,10 @@ end
 
 35.times { heroesdata() }
 
+user1.team_power = Hero.find("7").power_level + Hero.find("2").power_level + Hero.find("19").power_level
+
+user2.team_power = Hero.find("3").power_level + Hero.find("14").power_level + Hero.find("16").power_level + Hero.find("12").power_level + Hero.find("9").power_level
+
 UserHero.create(user_id: "1", hero_id: "7")
 UserHero.create(user_id: "1", hero_id: "2")
 UserHero.create(user_id: "1", hero_id: "19")
