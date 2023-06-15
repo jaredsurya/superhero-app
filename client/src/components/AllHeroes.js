@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import HeroCard from "./HeroCard";
-// displays cards for all of the heroes (25) within the database. each one can only be selected
-// once. possible eliminating from the list on click/add to team. 5 rows of 5.
+// displays cards for all of the heroes (30) within the database. each one can only be selected
+// once. possible eliminating from the list on click/add to team. 6 rows of 5.
 function AllHeroes({ heroArray, handleTeamAdd, setHeroArray }) {
   const [name, setName] = useState("");
   const [full_name, setFullName] = useState("");

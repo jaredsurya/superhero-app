@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import HeroCard from "./HeroCard";
 
+// Renders data for each team, including team power.
+
 function AllTeams() {
   const [allTeams, setAllTeams] = useState(null);
   const [teamsJSX, setTeamsJSX] = useState(null);
