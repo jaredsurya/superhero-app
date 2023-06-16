@@ -12,8 +12,20 @@ function Home({ user }) {
         Navigate from page to page using the orange bar above.
         <br />
         <br />
-        We must thank <em><a className="a" href="https://superheroapi.com/">superheroapi.com</a></em> and <em><a className="a" href="https://flatironschool.com/">Flatiron School</a></em>, for without <br/>these resources this
-        page would not have been possible.
+        We must thank{" "}
+        <em>
+          <a className="a" href="https://superheroapi.com/">
+            superheroapi.com
+          </a>
+        </em>{" "}
+        and{" "}
+        <em>
+          <a className="a" href="https://flatironschool.com/">
+            Flatiron School
+          </a>
+        </em>
+        , for without <br />
+        these resources this page would not have been possible.
       </h3>
     </div>
   );

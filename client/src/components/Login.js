@@ -15,7 +15,6 @@ function Login({ setUser }) {
             <LoginForm setUser={setUser} />
             <br />
             <br />
-
             <p>
               Don't have an account? &nbsp;
               <button
